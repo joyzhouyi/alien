@@ -1,0 +1,19 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="pygame" />
+          <option value="pro.alien_invasion.settings" />
+          <option value="pro.alien_invasion.ship" />
+          <option value="game_functions" />
+          <option value="pro.game_functions.bullet" />
+          <option value="pro.alien_invasion.alien" />
+          <option value="test.layoutStar.star" />
+          <option value="test.layoutStar.settings" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
