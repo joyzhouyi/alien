@@ -20,8 +20,8 @@ class Boss(Sprite):
         # 存储外星人的准确位置
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
-        self.blood=4
-        self.base_blood=4
+        self.blood=5
+
     def blitme(self):
         """在指定的位置绘制外星人"""
         self.screen.blit(self.image, self.rect)
