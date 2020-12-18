@@ -20,7 +20,8 @@ class Boss(Sprite):
         # 存储外星人的准确位置
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
-
+        self.blood=4
+        self.base_blood=4
     def blitme(self):
         """在指定的位置绘制外星人"""
         self.screen.blit(self.image, self.rect)
@@ -36,7 +37,7 @@ class Boss(Sprite):
     def update(self):
         """向右或者向左移动外星人"""
         # self.y += (self.ai_settings.alien_speed_factor*self.ai_settings.fleet_direction)
-        self.y += (self.ai_settings.alien_speed_factor )
+        self.y += (self.ai_settings.alien_speed_factor)/2
         self.rect.y = self.y
 
     # def changeImage(self):

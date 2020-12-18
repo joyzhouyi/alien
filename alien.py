@@ -19,7 +19,10 @@ class Alien(Sprite):
         self.rect.y = self.rect.height
         # 存储外星人的准确位置
         self.x = float(self.rect.x)
-
+        self.y = float(self.rect.y)
+        self.position = "top"
+        self.direction = 1
+        self.blood=ai_settings.alien_blood
     def blitme(self):
         """在指定的位置绘制外星人"""
         self.screen.blit(self.image, self.rect)
@@ -27,15 +30,36 @@ class Alien(Sprite):
     def check_edges(self):
         """如果外星人位于屏幕边缘，就返回True"""
         screen_rect = self.screen.get_rect()
-        if self.rect.right >= screen_rect.right-10:
+        if self.rect.right > screen_rect.right:
             return True
-        elif self.rect.left <= 10:
+        elif self.rect.left < 0:
             return True
 
     def update(self):
-        """向右或者向左移动外星人"""
-        self.x += (self.ai_settings.alien_speed_factor*self.ai_settings.fleet_direction)
-        self.rect.x = self.x
+        if self.position == "top":
+            pass
+        elif self.position == 'left':
+            self.x = self.rect.x
+            # self.x -= (self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction)
+            self.x += (self.ai_settings.alien_speed_factor * self.direction)
+            self.rect.x = self.x
+        elif self.position == 'right':
+            self.x = self.rect.x
+            # self.x -= (self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction)
+            self.x -= (self.ai_settings.alien_speed_factor * self.direction)
+            self.rect.x = self.x
+
+        # self.y = self.rect.y
+        self.y += self.ai_settings.alien_speed_factor / 5
+        self.rect.y = self.y
+
+        # """向右或者向左移动外星人"""
+        # # self.y=self.rect.y
+        #
+        # self.x += (self.ai_settings.alien_speed_factor*self.ai_settings.fleet_direction)
+        # # self.y+=self.ai_settings.alien_speed_factor/4
+        # self.rect.x = self.x
+        # self.rect.y=self.y
     # def changeImage(self):
     #     self.image = pygame.image.load('images/boom1.png')
     #     self.rect = self.image.get_rect()

@@ -54,7 +54,6 @@ class Ship(Sprite):
             self.curC = self.curC + 1
             # print(self.curC)
         if self.isBoom:
-
             if self.curC == self.targetC:
                 self.center_ship()
                 self.isBoom = False

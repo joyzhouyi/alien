@@ -14,7 +14,7 @@ class Button():
         #创建按钮的rect对象，并使其居中
         self.rect=pygame.Rect(0,0,self.width,self.height)
         self.rect.center=self.screen_rect.center
-
+        self.msg=msg
         #按钮的标签值需创建一次
         self.prep_msg(msg)
     def prep_msg(self,msg):
@@ -26,3 +26,8 @@ class Button():
         #绘制一个用用颜色填充的按钮，在绘制文本
         self.screen.fill(self.button_color,self.rect)
         self.screen.blit(self.msg_image,self.msg_image_rect)
+    def resSetMsg(self,msg):
+        self.msg=msg
+        self.msg_image = self.font.render(msg, True, self.text_color, self.button_color)
+        self.msg_image_rect = self.msg_image.get_rect()
+        self.msg_image_rect.center = self.rect.center
