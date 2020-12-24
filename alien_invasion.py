@@ -1,5 +1,3 @@
-import sys
-import pygame
 from settings import Settings
 from ship import Ship
 from alien import Alien
@@ -15,9 +13,12 @@ def run_game():
     # 初始化游戏并创建一个屏幕对象
     pygame.init()
     # 添加背景音乐
-    pygame.mixer.music.load('music/背景音乐.mp3')
+    pygame.mixer.music.load('music/backgroundMusic.mp3')
     pygame.mixer.music.play(-1)
     pygame.mixer.music.set_volume(0.1)
+
+    # eat_sound = pygame.mixer.Sound('music/bgm.mp3')
+    # eat_sound.play()
     icon = pygame.image.load("images/icon1.png")
     pygame.display.set_icon(icon)
     # # 添加吃到食物的音效
@@ -50,7 +51,7 @@ def run_game():
         if stats.game_active:
             ship.update()
             gf.update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets,booms,bloods)
-            gf.update_aliens(ai_settings,  screen,stats,sb, ship, aliens, bullets,booms,play_button)
+            gf.update_aliens(ai_settings,  screen,stats,sb, ship, aliens, bullets,booms,play_button )
             gf.update_booms(ai_settings,screen,stats,sb,booms)
             gf.update_bloods(ai_settings,screen,stats,bloods)
             print(len(bloods))
