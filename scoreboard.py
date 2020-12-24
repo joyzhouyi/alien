@@ -38,7 +38,7 @@ class Scoreboard():
     def prep_high_score(self):
         """将最高分转换为渲染的图像"""
         high_score=int(round(self.stats.high_score))
-        high_score_str="MaxScore: {:,}".format(high_score)
+        high_score_str="HighScore: {:,}".format(high_score)
         self.high_score_image=self.font.render(high_score_str,True,self.text_color,self.ai_settings.bg_color)
 
         #将最高得分放在屏幕顶部中央
@@ -47,8 +47,7 @@ class Scoreboard():
         self.high_score_rect.top=self.screen_rect.top+20
     def prep_level(self):
         """将等级转换为渲染的图像"""
-        self.level_imgae=self.font.render(str(self.stats.level),True,self.text_color,self.ai_settings.bg_color)
-
+        self.level_imgae=self.font.render(str(self.ai_settings.level),True,self.text_color,self.ai_settings.bg_color)
         #将等级放在得分下方
         self.level_rect=self.level_imgae.get_rect()
         self.level_rect.right=self.score_rect.right

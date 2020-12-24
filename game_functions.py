@@ -66,6 +66,9 @@ def check_keydown_events(event, ship, screen, ai_settings, bullets, stats, play_
         if stats.game_active == True:
             stats.game_active = False
             play_button.resSetMsg("Continue")
+        else:
+            stats.game_active=True
+            play_button.resSetMsg("Play")
     elif event.key == pygame.K_s:
         #只有游戏未开始或暂停才允许触发
         if stats.game_active == False:
@@ -114,7 +117,8 @@ def update_booms(ai_settings, screen, stats, sb, booms):
 def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, bullets, booms, bloods):
     """响应子弹和外星人的碰撞"""
     # 删除发生碰撞的子弹和外星人
-    if len(aliens) == 6 and not ai_settings.hasBoss:
+    num=random.randint(0,5)
+    if len(aliens) <= 6 and not ai_settings.hasBoss and num==2:
         create_boss(ai_settings, screen, aliens, bloods)
         ai_settings.hasBoss = True
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, False)

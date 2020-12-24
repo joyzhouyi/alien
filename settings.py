@@ -34,6 +34,7 @@ class Settings():
         self.blood_height=3
         self.blood_color1 = 202, 34, 41
         self.blood_color2 = 59, 176, 255
+        self.level=1
     def initialize_dynamic_settings(self):
         """初始化随游戏进行而变化的设置"""
         self.ship_speed_factor=1.5
